@@ -1,0 +1,37 @@
+#searchPlaceholder {
+    color: red;
+}
+
+::placeholder {
+    padding-left: 15px;
+}
+
+.searchIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding-right: 10px;
+}
+
+.loginBtn {
+    background-color: white;
+    color: #2874f0;
+    font-weight: bold;
+    width: 120px;
+    height: 35px;
+    border-radius: 0;
+    padding: 10px 0;
+}
+
+.loginBtn:hover {
+    background-color: white;
+}
+
+.becomeSeller {
+    text-transform: "none";
+    background: none;
+    color: white;
+    font-size: 12px;
+    font-weight: 800;
+}
