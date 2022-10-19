@@ -1,7 +1,11 @@
 import React from "react";
-
+import NavBar from "../components/NavBar";
 function Plus() {
-  return <div>this is the plus page</div>;
+  return (
+    <>
+      <NavBar />
+    </>
+  );
 }
 
 export default Plus;

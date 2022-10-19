@@ -18,10 +18,10 @@ function NavBar() {
     <AppBar className="navBar">
       <Toolbar className="navBarCont">
         <Box className="LogoContainer">
-          <Link className="link">
+          <Link className="link" to="/">
             <Typography className="companyName">Flipkart</Typography>
           </Link>
-          <Link className="link">
+          <Link className="link" to="/plus">
             <Typography className="plus">
               Explore <span>Plus</span>
             </Typography>
