@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import "./Navbar.css";
 import { Toolbar, Typography, Button, Paper } from "@mui/material";
@@ -7,18 +7,38 @@ import { Box } from "@mui/system";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import HistoryIcon from "@mui/icons-material/History";
-
+const historyData = ["mobiles", "laptops", "poco f1", "tshirts", "keyborard"];
+const defaultSuggest = [
+  "mobiles",
+  "monitors",
+  "mac book",
+  "laptop accessories",
+  "laptops",
+  "ram for laptops",
+  "xiaomi",
+  "poco f1",
+  "tshirts",
+  "tshirts for men",
+  "keyborard",
+];
 function NavBar() {
-  const defaultSuggest = [
-    "mobiles",
-    "laptops",
-    "poco f1",
-    "tshirts",
-    "keyborard",
-  ];
+  const [inputValue, setInputValue] = useState(" ");
+  const [filteredArray, setFilteredArray] = useState(historyData);
+  const inputValueHandler = (e) => {
+    setInputValue(e.target.value);
+  };
+  useEffect(() => {
+    setFilteredArray((_) => {
+      const newArray = defaultSuggest.filter((item) =>
+        item.includes(inputValue)
+      );
+      return newArray;
+    });
+  }, [inputValue]);
   const [autoSuggest, setAutoSuggest] = useState(false);
   const openAutoSuggest = () => {
     setAutoSuggest(!autoSuggest);
+    setFilteredArray(historyData);
   };
 
   return (
@@ -39,6 +59,7 @@ function NavBar() {
             type="text"
             placeholder="Search for products, brands and more"
             className="searchInput"
+            onChange={inputValueHandler}
             onClick={openAutoSuggest}
           />
           <div
@@ -61,13 +82,18 @@ function NavBar() {
           {/* here I am implementing the search bar which will be only show when user is typing something into the search bar */}
           {autoSuggest && (
             <Paper id="autoSuggest">
-              {defaultSuggest.map((item) => (
+              {filteredArray.map((item) => (
                 <Box className="autoSuggestContainer">
-                  <Typography className="searchResult">
-                    {" "}
-                    <HistoryIcon fontSize="small" />
-                    <span> {item}</span>
-                  </Typography>
+                  <Link to={`/${item}`} className="linkStyles">
+                    <Typography
+                      className="searchResult"
+                      onClick={console.log("hello")}
+                    >
+                      {" "}
+                      <HistoryIcon fontSize="small" />
+                      <span> {item}</span>
+                    </Typography>
+                  </Link>
                 </Box>
               ))}
             </Paper>
