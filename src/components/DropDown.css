@@ -1,0 +1,32 @@
+.dropDown {
+    width: 80%;
+    height: fit-content;
+    margin-left: 150px;
+    border-top: 0;
+    /* border-radius: 0px; */
+    /* border: 1px solid red; */
+    z-index: 100;
+    position: absolute;
+    border-top-right-radius: 0px;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 30px;
+}
+
+.dropDown .title {
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.dropDown .title:hover {
+    color: #1976d2;
+}
+
+.dropDown .subTitle {
+    padding-bottom: 15px;
+}

@@ -59,7 +59,7 @@ function ContainerWithCarousel() {
     <Box>
       <Grid container spacing={0}>
         {/* first grid item section  */}
-        <Grid item lg={2} height="100px">
+        <Grid item lg={2}>
           <Box marginLeft={1}>
             <img
               src="https://i.postimg.cc/qvjhcDp7/sideAdv1.png"
@@ -148,7 +148,7 @@ function ContainerWithCarousel() {
                     flexDirection="column"
                     alignItems="center"
                     style={{
-                      paddingBottom: "10px",
+                      //   paddingBottom: "10px",
                       marginTop: "30px",
                       //   border: "1px solid red",
                     }}
@@ -188,7 +188,7 @@ function ContainerWithCarousel() {
           </Box>
         </Grid>
         {/* third grid section  */}
-        <Grid item lg={2} height="354px">
+        <Grid item lg={2}>
           <Box marginLeft={2}>
             <img
               src="https://i.postimg.cc/3xd76tgN/sideAdv2.png"

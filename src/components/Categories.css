@@ -28,3 +28,7 @@
     font-family: Roboto, Arial, sans-serif;
     padding-top: 5px;
 }
+
+.containerData .catUtility {
+    cursor: pointer;
+}
