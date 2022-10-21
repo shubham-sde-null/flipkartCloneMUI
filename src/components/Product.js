@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import StarIcon from "@mui/icons-material/Star";
+import { Link } from "react-router-dom";
 const useStyle = makeStyles((theme) => ({
   productContainer: {
     // borderTop: "0.7px solid lightgrey",
@@ -56,7 +57,13 @@ function Product({
         <img width={width} height={height} src={src} alt={`${mobileName}`} />
       </div>
       <div className={classes.second}>
-        <h3>{mobileName}</h3>
+        <Link
+          style={{ textDecoration: "none", color: "black" }}
+          to={`/mobiles/${mobileName}`}
+        >
+          <h3>{mobileName}</h3>
+        </Link>
+
         <span
           style={{
             backgroundColor: "#388e3c",
