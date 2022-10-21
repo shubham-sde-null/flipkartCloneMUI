@@ -18,7 +18,7 @@ function Home() {
     image9: "https://i.postimg.cc/JhQxTZQN/showcase9.png",
   };
   return (
-    <>
+    <div>
       <NavBar />
       <Categories />
       <CarouselArea />
@@ -39,7 +39,8 @@ function Home() {
         image2={items.image8}
         image3={items.image9}
       />
-    </>
+      <div className="loginHandle">Hello</div>
+    </div>
   );
 }
 

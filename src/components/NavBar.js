@@ -7,7 +7,9 @@ import { Box } from "@mui/system";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import HistoryIcon from "@mui/icons-material/History";
+import Login from "./Login";
 const historyData = ["mobiles", "laptops", "poco f1", "tshirts", "keyborard"];
+
 const defaultSuggest = [
   "mobiles",
   "monitors",
@@ -22,11 +24,19 @@ const defaultSuggest = [
   "keyborard",
 ];
 function NavBar() {
+  const [login, setLogin] = useState(false);
   const [inputValue, setInputValue] = useState(" ");
   const [filteredArray, setFilteredArray] = useState(historyData);
+  const loginHandler = () => {
+    setLogin(!login);
+  };
+  function loginCloseHandler() {
+    setLogin(false);
+  }
   const inputValueHandler = (e) => {
     setInputValue(e.target.value);
   };
+  // console.log("the login is", login);
   useEffect(() => {
     setFilteredArray((_) => {
       const newArray = defaultSuggest.filter((item) =>
@@ -42,78 +52,81 @@ function NavBar() {
   };
 
   return (
-    <AppBar className="navBar">
-      <Toolbar className="navBarCont">
-        <Box className="LogoContainer">
-          <Link className="link" to="/">
-            <Typography className="companyName">Flipkart</Typography>
-          </Link>
-          <Link className="link" to="/plus">
-            <Typography className="plus">
-              Explore <span>Plus</span>
-            </Typography>
-          </Link>
-        </Box>
-        <Box className="searchBar">
-          <input
-            type="text"
-            placeholder="Search for products, brands and more"
-            className="searchInput"
-            onChange={inputValueHandler}
-            onClick={openAutoSuggest}
-          />
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              width: "50px",
-              height: "100%",
-              alignItems: "center",
-            }}
-          >
-            {" "}
-            <SearchIcon
-              color="primary"
-              //   fontSize="medium"
-              cursor="pointer"
-              id="searchIcon"
+    <div>
+      <AppBar className="navBar">
+        <Toolbar className="navBarCont">
+          <Box className="LogoContainer">
+            <Link className="link" to="/">
+              <Typography className="companyName">Flipkart</Typography>
+            </Link>
+            <Link className="link" to="/plus">
+              <Typography className="plus">
+                Explore <span>Plus</span>
+              </Typography>
+            </Link>
+          </Box>
+          <Box className="searchBar">
+            <input
+              type="text"
+              placeholder="Search for products, brands and more"
+              className="searchInput"
+              onChange={inputValueHandler}
+              onClick={openAutoSuggest}
             />
-          </div>
-          {/* here I am implementing the search bar which will be only show when user is typing something into the search bar */}
-          {autoSuggest && (
-            <Paper id="autoSuggest">
-              {filteredArray.map((item) => (
-                <Box className="autoSuggestContainer">
-                  <Link to={`/${item}`} className="linkStyles">
-                    <Typography
-                      className="searchResult"
-                      onClick={console.log("hello")}
-                    >
-                      {" "}
-                      <HistoryIcon fontSize="small" />
-                      <span> {item}</span>
-                    </Typography>
-                  </Link>
-                </Box>
-              ))}
-            </Paper>
-          )}
-        </Box>
-        <Button variant="contained" id="loginBtn">
-          Login
-        </Button>
-        <Button variant="text" className="navBarBtn">
-          Become a Seller
-        </Button>
-        <Button
-          variant="text"
-          className="navBarBtn"
-          startIcon={<ShoppingCartIcon />}
-        >
-          Cart
-        </Button>
-      </Toolbar>
-    </AppBar>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                width: "50px",
+                height: "100%",
+                alignItems: "center",
+              }}
+            >
+              {" "}
+              <SearchIcon
+                color="primary"
+                //   fontSize="medium"
+                cursor="pointer"
+                id="searchIcon"
+              />
+            </div>
+            {/* here I am implementing the search bar which will be only show when user is typing something into the search bar */}
+            {autoSuggest && (
+              <Paper id="autoSuggest">
+                {filteredArray.map((item) => (
+                  <Box className="autoSuggestContainer">
+                    <Link to={`/${item}`} className="linkStyles">
+                      <Typography
+                        className="searchResult"
+                        onClick={console.log("hello")}
+                      >
+                        {" "}
+                        <HistoryIcon fontSize="small" />
+                        <span> {item}</span>
+                      </Typography>
+                    </Link>
+                  </Box>
+                ))}
+              </Paper>
+            )}
+          </Box>
+          <Button variant="contained" id="loginBtn" onClick={loginHandler}>
+            Login
+          </Button>
+          <Button variant="text" className="navBarBtn">
+            Become a Seller
+          </Button>
+          <Button
+            variant="text"
+            className="navBarBtn"
+            startIcon={<ShoppingCartIcon />}
+          >
+            Cart
+          </Button>
+        </Toolbar>
+      </AppBar>
+      {login && <Login loginCloseHandler={loginCloseHandler} />}
+    </div>
   );
 }
 
