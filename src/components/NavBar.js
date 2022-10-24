@@ -1,3 +1,4 @@
+// import { connect } from "react-redux";
 import React, { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import "./Navbar.css";
@@ -8,6 +9,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import HistoryIcon from "@mui/icons-material/History";
 import Login from "./Login";
+import Badge from "@mui/material/Badge";
 const historyData = ["mobiles", "laptops", "poco f1", "tshirts", "keyborard"];
 
 const defaultSuggest = [
@@ -23,7 +25,15 @@ const defaultSuggest = [
   "tshirts for men",
   "keyborard",
 ];
-function NavBar() {
+function NavBar({ count }) {
+  // const count = useSelector((state) => state.count);
+  // const list = useSelector((oldCartItemList) => oldCartItemList);
+  // console.log("the value of count is", count);
+  // const res = useSelector((dataReceived) => dataReceived);
+  // const count = res.totalCartItems.count;
+
+  // console.log("this is props", props);
+  // console.log("this is res", res);
   const [login, setLogin] = useState(false);
   const [inputValue, setInputValue] = useState(" ");
   const [filteredArray, setFilteredArray] = useState(historyData);
@@ -31,7 +41,7 @@ function NavBar() {
     setLogin(!login);
   };
   function loginCloseHandler() {
-    setLogin(false);
+    setLogin(!login);
   }
   const inputValueHandler = (e) => {
     setInputValue(e.target.value);
@@ -116,12 +126,15 @@ function NavBar() {
           <Button variant="text" className="navBarBtn">
             Become a Seller
           </Button>
-          <Button
-            variant="text"
-            className="navBarBtn"
-            startIcon={<ShoppingCartIcon />}
-          >
-            Cart
+          <Button variant="text" className="navBarBtn">
+            <Badge badgeContent={count} color="error">
+              <ShoppingCartIcon />
+            </Badge>
+            {/* Cart */}
+            <Link to="/cart" style={{ textDecoration: "none", color: "white" }}>
+              {" "}
+              <span style={{ paddingLeft: "10px" }}>Cart</span>
+            </Link>
           </Button>
         </Toolbar>
       </AppBar>
@@ -129,5 +142,10 @@ function NavBar() {
     </div>
   );
 }
+// const mapStateToProps = (state) => ({
+//   cartNumber: state.count,
+// });
 
+// const mapDispatchToProps = (dispatch) => ({});
+// export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
 export default NavBar;

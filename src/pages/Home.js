@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Categories from "../components/Categories";
 import CarouselArea from "../components/CarouselArea";
 import Discount from "../components/Discount";
 import Showcase from "../components/Showcase";
 import NavBar from "../components/NavBar";
 import ContainerWithCarousel from "../components/ContainerWithCarousel";
+import { useSelector } from "react-redux";
+
 function Home() {
+  useEffect(() => {
+    console.log("this is home page");
+  }, []);
+  const NumberOfItems = useSelector((state) => state.totalCartItems.count);
   const items = {
     image1: "https://i.postimg.cc/C1F1cKzL/showcase1.png",
     image2: "https://i.postimg.cc/tJN82Xny/showcase2.png",
@@ -18,8 +24,8 @@ function Home() {
     image9: "https://i.postimg.cc/JhQxTZQN/showcase9.png",
   };
   return (
-    <div>
-      <NavBar />
+    <div key="home">
+      <NavBar count={NumberOfItems} />
       <Categories />
       <CarouselArea />
       <Discount />

@@ -7,7 +7,7 @@ function Categories() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(!open);
-    console.log(open);
+    // console.log(open);
   };
   // const handleClose = () => {
   //   setOpen(!open);

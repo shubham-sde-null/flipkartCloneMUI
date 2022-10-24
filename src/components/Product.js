@@ -2,6 +2,8 @@ import React from "react";
 import { makeStyles } from "@mui/styles";
 import StarIcon from "@mui/icons-material/Star";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { selectedProduct } from "../redux/action";
 const useStyle = makeStyles((theme) => ({
   productContainer: {
     // borderTop: "0.7px solid lightgrey",
@@ -49,8 +51,11 @@ function Product({
   src,
   width,
   height,
+  id,
 }) {
+  const dispatch = useDispatch();
   const classes = useStyle();
+
   return (
     <div className={classes.productContainer}>
       <div className={classes.first}>
@@ -60,6 +65,9 @@ function Product({
         <Link
           style={{ textDecoration: "none", color: "black" }}
           to={`/mobiles/${mobileName}`}
+          onClick={() => {
+            dispatch(selectedProduct(mobileName));
+          }}
         >
           <h3>{mobileName}</h3>
         </Link>

@@ -57,6 +57,7 @@ function Mobiles() {
                   src={item.src}
                   width={item.width}
                   height={item.height}
+                  id={item.id}
                 />
               ))}
             </div>
