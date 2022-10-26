@@ -34,10 +34,23 @@ function NavBar({ count }) {
 
   // console.log("this is props", props);
   // console.log("this is res", res);
-  const [login, setLogin] = useState(false);
+  const [cross, setCross] = useState(false);
+  const [login, setLogin] = useState(true);
+  // this is the test version
+  useEffect(() => {
+    if (localStorage.getItem("userInfo")) {
+      setLogin(false);
+      console.log(localStorage.getItem("userInfo"));
+    }
+    console.log("current value of cross is", cross);
+    // eslint-disable-next-line
+  }, []);
+  //this is the test version end
   const [inputValue, setInputValue] = useState(" ");
   const [filteredArray, setFilteredArray] = useState(historyData);
   const loginHandler = () => {
+    // setLogin(!login);
+    localStorage.removeItem("userInfo");
     setLogin(!login);
   };
   function loginCloseHandler() {
@@ -46,6 +59,10 @@ function NavBar({ count }) {
   const inputValueHandler = (e) => {
     setInputValue(e.target.value);
   };
+  const crossBtnHandler = () => {
+    setCross(true);
+  };
+
   // console.log("the login is", login);
   useEffect(() => {
     setFilteredArray((_) => {
@@ -121,7 +138,8 @@ function NavBar({ count }) {
             )}
           </Box>
           <Button variant="contained" id="loginBtn" onClick={loginHandler}>
-            Login
+            {/* Login */}
+            {login === false && cross === true ? "Login" : "Logout"}
           </Button>
           <Button variant="text" className="navBarBtn">
             Become a Seller
@@ -138,7 +156,12 @@ function NavBar({ count }) {
           </Button>
         </Toolbar>
       </AppBar>
-      {login && <Login loginCloseHandler={loginCloseHandler} />}
+      {login && (
+        <Login
+          loginCloseHandler={loginCloseHandler}
+          crossBtnHandler={crossBtnHandler}
+        />
+      )}
     </div>
   );
 }

@@ -1,8 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 function Login(props) {
+  const navigate = useNavigate();
+  const [email, setEmial] = useState("");
+  const [password, setPassword] = useState("");
+  useEffect(() => {
+    console.log("the email is", email);
+    console.log("the password is", password);
+  });
+  async function loginHandler() {
+    let item = { email, password };
+    let result = await fetch("http://localhost:8000/loginuser", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        accept: "application/json",
+      },
+      body: JSON.stringify(item),
+    });
+    if (result) {
+      result = await result.json();
+      localStorage.setItem("userInfo", JSON.stringify(result));
+      navigate("/");
+      // props.loginCloseHandler();
+    }
+  }
   return (
     <div className="loginPage">
       <div className="loginContainer">
@@ -20,13 +45,21 @@ function Login(props) {
               type="text"
               placeholder="Enter Email/ Mobile Number"
               className="rightTextField"
+              onChange={(e) => {
+                setEmial(e.target.value);
+              }}
+              value={email}
             />
           </div>
           <div>
             <input
-              type="text"
+              type="password"
               placeholder="Password"
               className="rightTextField"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              value={password}
             />
           </div>
           <div className="rightPartDesc">
@@ -37,7 +70,11 @@ function Login(props) {
             </p>
           </div>
 
-          <Button variant="contained" className="loginButton">
+          <Button
+            variant="contained"
+            className="loginButton"
+            onClick={loginHandler}
+          >
             Login
           </Button>
           <p className="or">OR</p>
@@ -50,7 +87,13 @@ function Login(props) {
           <p>close</p>
         </div> */}
       </div>
-      <div className="closeBtn" onClick={props.loginCloseHandler}>
+      <div
+        className="closeBtn"
+        onClick={() => {
+          props.crossBtnHandler();
+          props.loginCloseHandler();
+        }}
+      >
         <CloseIcon fontSize="large" />
       </div>
     </div>
