@@ -31,12 +31,14 @@
 
 .rightCartContainer {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    flex-direction: column;
     /* align-items: center; */
     width: 30%;
     height: 100%;
     /* border: 1px solid rgb(0, 255, 17); */
     border-radius: 10px;
+    margin-left: 25px;
 }
 
 .leftCartContainer .cartNumber {
@@ -222,4 +224,26 @@
 
 .rightCartContainer .productDetails .extraInfo>p {
     font-size: 18px;
+}
+
+.rightCartContainer .placeOrder {
+    /* border: 2px solid red; */
+    justify-self: center;
+    align-self: center;
+    width: 100%;
+}
+
+.rightCartContainer .placeOrder .placeOrderBtn {
+    font-size: 17px;
+    width: 85%;
+    align-self: center;
+    /* text-transform: none; */
+    background-color: #fb641b;
+    /* width: 220px; */
+    height: 55px;
+    margin: 5px;
+    margin-top: 15px;
+    margin-left: 10px;
+    font-weight: bold;
+    color: white;
 }

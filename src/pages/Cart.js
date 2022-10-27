@@ -128,6 +128,9 @@ function Cart() {
               <p style={{ color: "#388e3c", fontSize: "18px" }}>Free</p>
             </div>
           </div>
+          <div className="placeOrder">
+            <Button className="placeOrderBtn">Place Order</Button>
+          </div>
         </div>
       </div>
       ;

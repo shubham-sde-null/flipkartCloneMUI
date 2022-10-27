@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
-import "./Login.css";
-import { useNavigate } from "react-router-dom";
+import "./Register.css";
+// import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-function Login(props) {
-  const navigate = useNavigate();
+function Register(props) {
+  //   const navigate = useNavigate();
   const [email, setEmial] = useState("");
   const [password, setPassword] = useState("");
   useEffect(() => {
     console.log("the email is", email);
     console.log("the password is", password);
   });
-  async function loginHandler() {
+  async function registerHandler() {
     let item = { email, password };
-    let result = await fetch("http://localhost:8000/loginuser", {
+    let result = await fetch("http://localhost:8000/registeruser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,16 +24,18 @@ function Login(props) {
     if (result) {
       result = await result.json();
       localStorage.setItem("userInfo", JSON.stringify(result));
-      navigate("/");
+      //   navigate("/");
+      localStorage.removeItem("userInfo");
       props.loginCloseHandler();
+      props.registerHandler();
     }
   }
   return (
     <div className="loginPage">
       <div className="loginContainer">
         <div className="leftLogin">
-          <h2>Login</h2>
-          <p>Get access to your Orders, whishlist and Recommendations</p>
+          <h2>Looks like you're new here!</h2>
+          <p>Sign Up with your email to get started</p>
           <img
             src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/login_img_c4a81e.png"
             alt=""
@@ -73,31 +75,36 @@ function Login(props) {
           <Button
             variant="contained"
             className="loginButton"
-            onClick={loginHandler}
+            onClick={registerHandler}
           >
-            Login
+            Register
           </Button>
-          <p className="or">OR</p>
-          <Button variant="contained" className="requestOTP">
-            Request OTP
-          </Button>
-          <p
-            className="account"
-            onClick={props.registerHandler}
-            style={{ cursor: "pointer" }}
+          {/* <p className="or">OR</p> */}
+          <Button
+            variant="contained"
+            className="requestOTP"
+            onClick={() => {
+              props.registerHandler();
+            }}
           >
-            New To Flikart? Create an account
-          </p>
+            Existing User? Log in
+          </Button>
+          {/* <p className="account">New To Flikart? Create an account</p> */}
         </div>
         {/* <div className="closeBtn">
           <p>close</p>
         </div> */}
       </div>
-      <div className="closeBtn" onClick={props.loginCloseHandler}>
+      <div
+        className="closeBtn"
+        onClick={() => {
+          props.loginCloseHandler();
+          props.registerHandler();
+        }}
+      >
         <CloseIcon fontSize="large" />
       </div>
     </div>
   );
 }
-
-export default Login;
+export default Register;

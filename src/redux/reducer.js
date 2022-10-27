@@ -14,9 +14,24 @@ export const cartItemList = (oldCartItemList = [], action) => {
   switch (action.type) {
     case ADD_TO_CART:
       return [...oldCartItemList, action.payload];
-    case REMOVE_FROM_CART:
-      return oldCartItemList.filter((item) => item.id !== action.payload.id);
+    // case REMOVE_FROM_CART:
+    //   return oldCartItemList.filter((item) => item.id !== action.payload.id);
 
+    case REMOVE_FROM_CART:
+      const duplicateArray = oldCartItemList.filter(
+        (item) => item.id === action.payload.id
+      );
+      duplicateArray.pop();
+      // const val1 = duplicateArray.pop();
+      // console.log("val1 is", val1);
+      // const filterArray = oldCartItemList.filter(
+      //   (item) => item.id !== action.payload.id
+      // );
+      // const finalArray = [val1, filterArray];
+      return [
+        ...duplicateArray,
+        ...oldCartItemList.filter((item) => item.id !== action.payload.id),
+      ];
     default:
       return oldCartItemList;
   }

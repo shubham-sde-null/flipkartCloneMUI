@@ -1,5 +1,6 @@
 // import { connect } from "react-redux";
-import React, { useState, useEffect } from "react";
+
+import React, { useState, useEffect, useMemo } from "react";
 import AppBar from "@mui/material/AppBar";
 import "./Navbar.css";
 import { Toolbar, Typography, Button, Paper } from "@mui/material";
@@ -9,6 +10,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import HistoryIcon from "@mui/icons-material/History";
 import Login from "./Login";
+import Register from "./Register";
 import Badge from "@mui/material/Badge";
 const historyData = ["mobiles", "laptops", "poco f1", "tshirts", "keyborard"];
 
@@ -26,6 +28,7 @@ const defaultSuggest = [
   "keyborard",
 ];
 function NavBar({ count }) {
+  const [register, setRegister] = useState(false);
   // const count = useSelector((state) => state.count);
   // const list = useSelector((oldCartItemList) => oldCartItemList);
   // console.log("the value of count is", count);
@@ -34,22 +37,29 @@ function NavBar({ count }) {
 
   // console.log("this is props", props);
   // console.log("this is res", res);
-  const [cross, setCross] = useState(false);
   const [login, setLogin] = useState(true);
-  // this is the test version
-  useEffect(() => {
+  //here I am using the useMemo hook to check if there is user in the local storage, if there is some user then it will memorize it and it will avoid the re-render of the component, whereas in useEffect hook my localstorage was getting checked at every step and showing the login page again and again
+  useMemo(() => {
     if (localStorage.getItem("userInfo")) {
       setLogin(false);
-      console.log(localStorage.getItem("userInfo"));
+      // console.log(localStorage.getItem("userInfo"));
     }
-    console.log("current value of cross is", cross);
     // eslint-disable-next-line
   }, []);
-  //this is the test version end
+  // useEffect(() => {
+  //   if (localStorage.getItem("userInfo")) {
+  //     setLogin(false);
+  //     // console.log(localStorage.getItem("userInfo"));
+  //   }
+  //   // eslint-disable-next-line
+  // }, []);
   const [inputValue, setInputValue] = useState(" ");
   const [filteredArray, setFilteredArray] = useState(historyData);
+  const registerHandler = () => {
+    setRegister(!register);
+    console.log("register is", register);
+  };
   const loginHandler = () => {
-    // setLogin(!login);
     localStorage.removeItem("userInfo");
     setLogin(!login);
   };
@@ -58,9 +68,6 @@ function NavBar({ count }) {
   }
   const inputValueHandler = (e) => {
     setInputValue(e.target.value);
-  };
-  const crossBtnHandler = () => {
-    setCross(true);
   };
 
   // console.log("the login is", login);
@@ -139,15 +146,25 @@ function NavBar({ count }) {
           </Box>
           <Button variant="contained" id="loginBtn" onClick={loginHandler}>
             {/* Login */}
-            {login === false && cross === true ? "Login" : "Logout"}
+            {localStorage.getItem("userInfo") ? "Logout" : "Login"}
+            {/* {login === false && cross === true ? "Login" : "Logout"} */}
           </Button>
           <Button variant="text" className="navBarBtn">
             Become a Seller
           </Button>
           <Button variant="text" className="navBarBtn">
-            <Badge badgeContent={count} color="error">
+            {localStorage.getItem("userInfo") ? (
+              <Badge badgeContent={count} color="error">
+                <ShoppingCartIcon />
+              </Badge>
+            ) : (
+              <Badge badgeContent={0} color="error">
+                <ShoppingCartIcon />
+              </Badge>
+            )}
+            {/* <Badge badgeContent={count} color="error">
               <ShoppingCartIcon />
-            </Badge>
+            </Badge> */}
             {/* Cart */}
             <Link to="/cart" style={{ textDecoration: "none", color: "white" }}>
               {" "}
@@ -159,7 +176,13 @@ function NavBar({ count }) {
       {login && (
         <Login
           loginCloseHandler={loginCloseHandler}
-          crossBtnHandler={crossBtnHandler}
+          registerHandler={registerHandler}
+        />
+      )}
+      {register && (
+        <Register
+          loginCloseHandler={loginCloseHandler}
+          registerHandler={registerHandler}
         />
       )}
     </div>
