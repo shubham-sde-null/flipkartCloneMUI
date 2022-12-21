@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Paper, Typography } from "@mui/material";
+import { Box, Paper, Typography, useTheme, useMediaQuery } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 const useStyle = makeStyles((theme) => ({
   categorySection: {
@@ -7,6 +7,7 @@ const useStyle = makeStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     marginTop: "65px",
+    // border: "5px solid red",
   },
   categoryData: {
     width: "100%",
@@ -36,9 +37,14 @@ const categories = [
   "Offer Zone",
 ];
 function SubCategories() {
+  const theme = useTheme();
+  const isMatch = useMediaQuery(theme.breakpoints.down("sm"));
   const classes = useStyle();
   return (
-    <Box className={classes.categorySection}>
+    <Box
+      sx={{ display: isMatch ? "none" : "" }}
+      className={classes.categorySection}
+    >
       <Paper className={classes.categoryData}>
         {categories.map((item) => (
           <Typography className={classes.categoryTitle}>{item}</Typography>

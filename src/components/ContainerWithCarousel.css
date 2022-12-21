@@ -1,0 +1,250 @@
+.mainGridS {
+    /* border: 2px solid black; */
+    /* grid-template-areas: "A A C C   C C C C   C C B B" "A A C C   C C C C   C C B B" "A A C C   C C C C   C C B B"; */
+}
+
+.firstGrid {
+    /* grid-area: A; */
+    /* border: 2px solid red; */
+    width: 50%;
+    height: 200px;
+    display: none;
+}
+
+.imageHolder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid yellow; */
+    width: 100%;
+    height: 100%;
+}
+
+.firstGrid .imageHolder img {
+    width: 90%;
+    /* object-fit: contain; */
+    height: 100%;
+}
+
+.thirdGrid {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* grid-area: B; */
+    /* border: 2px solid violet; */
+    width: 50%;
+    height: 200px;
+    display: none;
+}
+
+.thirdGrid img {
+    width: 90%;
+    /* object-fit: contain; */
+    height: 100%;
+}
+
+.secondGrid {
+    /* grid-area: C; */
+    /* border: 1px solid red; */
+    width: 100%;
+    height: fit-content;
+}
+
+.secondGridL {}
+
+.secondGrid .secondGridBox {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    /* padding-left: 5px;
+    padding-right: 5px; */
+    /* border: 2px solid lime; */
+}
+
+.secondGridL .secondGridBoxL {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    /* border: 2px solid lime; */
+}
+
+.secondGrid .secondGridBox .carouselHolder {
+    /* border: 2px solid rgb(237, 217, 35); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.secondGridL .secondGridBoxL .carouselHolderL {
+    border: 2px solid rebeccapurple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.secondGrid .secondGridBox .carouselHolder .carouselBox1 {
+    display: flex;
+    justify-content: center;
+    /* justify-content: space-around; */
+    align-items: center;
+    border: 1px solid grey;
+    /* background-color: red; */
+}
+
+.secondGrid .secondGridBox .carouselHolder .carouselBox2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
+    /* background-color: rgb(150, 234, 144); */
+}
+
+.secondGridL .secondGridBoxL .carouselHolderL .carouselBox1L {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 2px solid rgb(166, 38, 38); */
+}
+
+.secondGridL .secondGridBoxL .carouselHolderL .carouselBox2L {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 2px solid rgb(255, 204, 0); */
+}
+
+.secondGrid .secondGridBox .carouselHolder .carouselBox1 .carouselBox1Child {
+    display: flex;
+    /* justify-content: center; */
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    /* border: 2px solid rgb(0, 0, 0); */
+    width: 100%;
+    /* height: 100%; */
+    /* background-color: orange; */
+    min-height: 130px;
+    height: fit-content;
+    /* height: auto; */
+    /* height: 200px; */
+}
+
+.secondGridL .secondGridBoxL .carouselHolderL .carouselBox1L .carouselBox1ChildL {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    /* border: 2px solid rgb(255, 0, 43); */
+    height: 100%;
+    text-align: center;
+}
+
+.secondGridL .secondGridBoxL .carouselHolderL .carouselBox2L .carouselBox2ChildL {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    border: 2px solid rgb(255, 0, 43);
+    height: 100%;
+    text-align: center;
+}
+
+.secondGrid .secondGridBox .carouselHolder .carouselBox2 .carouselBox2Child {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /* border: 2px solid rgb(221, 0, 0); */
+    min-height: 130px;
+    height: fit-content;
+    /* border: 2px solid black; */
+}
+
+.secondGrid .secondGridBox .carouselHolder .carouselBox1 .carouselBox1Child img {
+    width: 80px;
+    height: 60px;
+}
+
+.secondGrid .secondGridBox .carouselHolder .carouselBox1 .carouselBox1Child .carouselBox1Product {
+    font-size: 11px;
+}
+
+.secondGridL .secondGridBoxL .carouselHolderL .carouselBox1L .carouselBox1ChildL .carouselBox1ProductL {
+    justify-self: flex-end;
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    /* border: 2px solid red; */
+}
+
+.secondGridL .secondGridBoxL .carouselHolderL .carouselBox2L .carouselBox2ChildL .carouselBox2ProductL {
+    justify-self: flex-end;
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    /* border: 2px solid red; */
+}
+
+.secondGrid .secondGridBox .carouselHolder .carouselBox1 .carouselBox1Child .carouselBox1Price {
+    font-size: 13px;
+}
+
+.secondGridL .secondGridBoxL .carouselHolderL .carouselBox1L .carouselBox1ChildL .carouselBox1PriceL {
+    justify-self: flex-end;
+    color: #388e3c;
+    padding-top: 5px;
+    /* border: 2px solid red; */
+}
+
+.secondGridL .secondGridBoxL .carouselHolderL .carouselBox2L .carouselBox2ChildL .carouselBox2PriceL {
+    justify-self: flex-end;
+    color: #388e3c;
+    padding-top: 5px;
+    /* border: 2px solid red; */
+}
+
+.secondGrid .secondGridBox .carouselHolder .carouselBox1 .carouselBox1Child .carouselBox1More {
+    font-size: 11px;
+}
+
+.secondGridL .secondGridBoxL .carouselHolderL .carouselBox1L .carouselBox1ChildL .carouselBox1MoreL {
+    justify-self: flex-end;
+    color: #717171;
+    padding-top: 5px;
+    /* border: 2px solid red; */
+}
+
+.secondGridL .secondGridBoxL .carouselHolderL .carouselBox2L .carouselBox2ChildL .carouselBox2MoreL {
+    justify-self: flex-end;
+    color: #717171;
+    padding-top: 5px;
+    /* border: 2px solid red; */
+}
+
+.secondGrid .secondGridBox .carouselHolder .carouselBox2 .carouselBox2Child .carouselBox2Product {
+    font-size: 11px;
+}
+
+.secondGrid .secondGridBox .carouselHolder .carouselBox2 .carouselBox2Child .carouselBox2Price {
+    font-size: 13px;
+}
+
+.secondGrid .secondGridBox .carouselHolder .carouselBox2 .carouselBox2Child .carouselBox2More {
+    font-size: 11px;
+}
+
+.secondGrid .secondGridBox .carouselHolder .carouselBox2 .carouselBox2Child img {
+    width: 80px;
+    height: 60px;
+}
+
+.secondGrid .secondGridBox .carouselHolder .carouselBox2 {
+    /* border: 2px solid rgb(3, 43, 52); */
+}

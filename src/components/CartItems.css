@@ -5,9 +5,45 @@
     height: 210px;
 }
 
+.cartItemsSmall {
+    display: flex;
+    flex-direction: column;
+    /* gap: 0.8rem; */
+    background-color: white;
+    /* border: 0.5px solid rgb(232, 230, 230); */
+    /* border: 1px solid rgb(240, 0, 0); */
+    /* height: 410px; */
+    height: fit-content;
+    border-bottom: 0.5px solid lightgrey;
+    /* border: 2px solid rgb(34, 255, 0); */
+    /* border-bottom: 1px solid red; */
+    padding-bottom: 1rem;
+    margin-bottom: 10px;
+}
+
+.cartItemsSmall .productDescSmall {
+    /* height: 100%; */
+    /* border: 2px solid rgb(43, 0, 128); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+}
+
 .cartItems .productDescImg {
     width: 150px;
     height: 150px;
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cartItemsSmall .productDescImgSmall {
+    /* width: 150px;
+    height: 150px; */
+    width: 40%;
+    height: 100%;
     /* border: 1px solid black; */
     display: flex;
     align-items: center;
@@ -25,12 +61,46 @@
     width: 100%;
 }
 
+.cartItemsSmall .productDescDataSmall {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding-left: 25px;
+    /* border: 1px solid green; */
+    height: 150px;
+    padding-top: 10px;
+    width: 100%;
+}
+
 .cartItems .removeFromCart {
+    display: flex;
+    /* justify-content: center; */
     /* border: 1px solid red; */
-    padding-left: 155px;
+    align-items: center;
+    padding-left: 145px;
     font-size: 18px;
     font-weight: 600;
     padding-bottom: 10px;
+}
+
+.cartItemsSmall .removeFromCartSmall {
+    /* border: 1px solid red; */
+    /* padding-left: 155px; */
+    font-size: 1rem;
+    font-weight: 600;
+    /* padding-bottom: 10px; */
+    border: 0.5px solid lightgray;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 7px 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+    gap: 7px;
+    color: rgb(101, 99, 99);
+    width: fit-content;
 }
 
 .cartItems .removeFromCart:hover {
@@ -44,3 +114,6 @@
     width: fit-content;
     height: fit-content;
 }
+
+
+/*  */

@@ -1,13 +1,46 @@
+.mainCategory {}
+
+.mainCategoryS {
+    /* border: 2px solid black; */
+    /* background-color: rebeccapurple; */
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    margin-top: 75px;
+}
+
 .cateContainer {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    /* align-items: center; */
     margin-top: 62px;
     width: 100%;
     height: 110px;
     border-radius: 0;
     padding-left: 120px;
     padding-right: 120px;
+    /* border: 2px solid orange; */
+}
+
+.mainCategoryS .cateContainerS {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    /* flex-wrap: nowrap; */
+    /* width: fit-content; */
+    /* flex-direction: column; */
+    width: 100%;
+    /* height: 110px; */
+    padding: 10px;
+    border-radius: 0;
+    gap: 7px;
+    /* max-height: 85px; */
+    /* padding-left: 170px; */
+    /* padding-right: 120px; */
+    /* border: 2px solid rgb(128, 0, 255); */
+    /* overflow: hidden; */
+    overflow-x: auto;
+    /* margin-left: auto; */
 }
 
 .containerData {
@@ -15,6 +48,26 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.mainCategoryS .cateContainerS .containerDataS {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* width: 100%; */
+    /* width: 30px; */
+    /* border: 1px solid limegreen; */
+    /* padding: 5px 10px; */
+    /* min-width: 70px; */
+    flex: 0 0 auto;
+    /* flex-grow: 1; */
+    /* gap: 15px; */
+    margin-right: 10px;
+}
+
+.containerDataS img {
+    width: 50px;
 }
 
 .containerData img {
@@ -29,6 +82,24 @@
     padding-top: 5px;
 }
 
-.containerData .catUtility {
-    cursor: pointer;
+.containerDataS p {
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+    font-size: 9px;
+    font-family: Roboto, Arial, sans-serif;
+    padding-top: 5px;
+    /* width: 90px; */
+    /* border: 1px solid red; */
+    text-align: center;
+}
+
+.containerData .categoryTitle {
+    /* border: 1px solid yellow; */
+    /* cursor: pointer; */
+}
+
+.containerDataS .categoryTitleS {
+    /* border: 1px solid rgb(199, 17, 63); */
+    font-size: 10px;
+    /* cursor: pointer; */
 }

@@ -1,5 +1,57 @@
 .mobileContainer {
     margin-top: 65px;
+    /* border: 2px solid red; */
+}
+
+.mobileContainerSmall {
+    width: 100%;
+    margin-top: 75px;
+    /* border: 2px solid rgb(114, 4, 248); */
+    display: flex;
+    flex-direction: column;
+}
+
+.mobileContainerSmall .smallTop {
+    display: flex;
+    border: 1px solid lightgrey;
+    /* justify-content: space-around; */
+    align-items: center;
+    height: 5vh;
+}
+
+.smallTop .sortArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 18px;
+    font-weight: 500;
+    width: 50%;
+    /* border: 1px solid green; */
+    border-right: 1px solid lightgray;
+}
+
+.smallTop .filterArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 18px;
+    font-weight: 500;
+    width: 50%;
+    /* border: 1px solid green; */
+}
+
+.smallDown {
+    /* border: 2px solid rgb(255, 0, 0); */
+    width: 100%;
+}
+
+.rightSectionProductsSmall {
+    /* border: 2px solid yellow; */
+    /* background-color: rebeccapurple; */
+    /* margin-top: 150px; */
+    width: 100%;
 }
 
 .categorySection {

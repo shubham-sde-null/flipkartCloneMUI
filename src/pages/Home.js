@@ -4,6 +4,7 @@ import CarouselArea from "../components/CarouselArea";
 import Discount from "../components/Discount";
 import Showcase from "../components/Showcase";
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 import ContainerWithCarousel from "../components/ContainerWithCarousel";
 import { useSelector } from "react-redux";
 
@@ -45,7 +46,7 @@ function Home() {
         image2={items.image8}
         image3={items.image9}
       />
-      <div className="loginHandle">Hello</div>
+      <Footer />
     </div>
   );
 }

@@ -1,9 +1,11 @@
 import React from "react";
-import { Paper, Typography, Box } from "@mui/material";
+import { Paper, Typography, Box, useTheme, useMediaQuery } from "@mui/material";
 import "./DropDown.css";
 function DropDown(props) {
+  const theme = useTheme();
+  const isMatch = useMediaQuery(theme.breakpoints.down("sm"));
   return (
-    <Paper className="dropDown">
+    <Paper className="dropDown" sx={{ display: isMatch ? "none" : "" }}>
       {props.mainMenus.map((item) => (
         <Box>
           <Typography className="title">{item.mainProduct}</Typography>
