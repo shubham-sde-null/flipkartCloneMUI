@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/flipkartCloneMUI/static/css/main.540a3a63.css",
+    "main.js": "/flipkartCloneMUI/static/js/main.447ff2c0.js",
+    "static/js/787.f5e1d206.chunk.js": "/flipkartCloneMUI/static/js/787.f5e1d206.chunk.js",
+    "index.html": "/flipkartCloneMUI/index.html",
+    "main.540a3a63.css.map": "/flipkartCloneMUI/static/css/main.540a3a63.css.map",
+    "main.447ff2c0.js.map": "/flipkartCloneMUI/static/js/main.447ff2c0.js.map",
+    "787.f5e1d206.chunk.js.map": "/flipkartCloneMUI/static/js/787.f5e1d206.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.540a3a63.css",
+    "static/js/main.447ff2c0.js"
+  ]
+}
