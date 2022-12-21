@@ -13,14 +13,19 @@ function Login(props) {
   });
   async function loginHandler() {
     let item = { email, password };
-    let result = await fetch("http://localhost:8000/loginuser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        accept: "application/json",
-      },
-      body: JSON.stringify(item),
-    });
+    // http://localhost:8000/loginuser
+    //earlie this was the url when running on local server
+    let result = await fetch(
+      "https://lime-drab-chipmunk.cyclic.app/loginuser",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          accept: "application/json",
+        },
+        body: JSON.stringify(item),
+      }
+    );
     if (result) {
       result = await result.json();
       localStorage.setItem("userInfo", JSON.stringify(result));

@@ -13,14 +13,19 @@ function Register(props) {
   });
   async function registerHandler() {
     let item = { email, password };
-    let result = await fetch("http://localhost:8000/registeruser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        accept: "application/json",
-      },
-      body: JSON.stringify(item),
-    });
+    // http://localhost:8000/registeruser
+    // earlier this was the url when fetching from local server
+    let result = await fetch(
+      "https://lime-drab-chipmunk.cyclic.app/registeruser",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          accept: "application/json",
+        },
+        body: JSON.stringify(item),
+      }
+    );
     if (result) {
       result = await result.json();
       localStorage.setItem("userInfo", JSON.stringify(result));
