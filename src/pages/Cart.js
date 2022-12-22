@@ -14,14 +14,14 @@ function Cart() {
   const isMatch = useMediaQuery(theme.breakpoints.down("sm"));
   const [cartPrice, setCartPrice] = useState(0);
   // const [strVal, setStrVal] = useState("");
-  useEffect(() => {
-    console.log("this is the cart page");
-  }, []);
+  // useEffect(() => {
+  //   console.log("this is the cart page");
+  // }, []);
   // const dispatch = useDispatch();
   // const cartNumber = useSelector((state) => state.totalCartItems.count);
   const NumberOfItems = useSelector((state) => state.totalCartItems.count);
   const addToCartData = useSelector((state) => state.cartItemList);
-  console.log("data received on cart page", addToCartData);
+  // console.log("data received on cart page", addToCartData);
   useEffect(() => {
     function show() {
       let initial = 0;

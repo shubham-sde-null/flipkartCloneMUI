@@ -26,15 +26,15 @@ function SelectedProductPage() {
   const isMatch = useMediaQuery(theme.breakpoints.down("sm"));
   const NumberOfItems = useSelector((state) => state.totalCartItems.count);
   const realCart = useSelector((state) => state);
-  console.log("real cart is", realCart);
+  // console.log("real cart is", realCart);
   const selectedMbName = realCart.dataReceived;
   // console.log("gettiing mobile Name", realCart.dataReceived);
   const dispatch = useDispatch();
   const fData = mobileData.filter((item) => item.mobileName === selectedMbName);
-  console.log("the fData is", fData[0].price);
-  useEffect(() => {
-    console.log("this is selected product page");
-  }, []);
+  // console.log("the fData is", fData[0].price);
+  // useEffect(() => {
+  //   console.log("this is selected product page");
+  // }, []);
   return (
     <div>
       <NavBar count={NumberOfItems} />
@@ -187,7 +187,28 @@ function SelectedProductPage() {
                 marginBottom: "0.4rem",
               }}
             >
-              ₹{fData[0].price}
+              ₹
+              {fData[0].price.toString().length === 4
+                ? `${fData[0].price.toString()[0]},${
+                    fData[0].price.toString()[1]
+                  }${fData[0].price.toString()[2]}${
+                    fData[0].price.toString()[3]
+                  }`
+                : fData[0].price.toString().length === 5
+                ? `${fData[0].price.toString()[0]}${
+                    fData[0].price.toString()[1]
+                  },${fData[0].price.toString()[2]}${
+                    fData[0].price.toString()[3]
+                  }${fData[0].price.toString()[4]}`
+                : fData[0].price.toString().length === 6
+                ? `${fData[0].price.toString()[0]},${
+                    fData[0].price.toString()[1]
+                  }${fData[0].price.toString()[2]},${
+                    fData[0].price.toString()[3]
+                  }${fData[0].price.toString()[4]}${
+                    fData[0].price.toString()[5]
+                  }`
+                : ``}
             </h2>
             {/* <h2>{mobileData[0].price}</h2> */}
             <Accordion className="accContainerSmall">
@@ -340,7 +361,7 @@ function SelectedProductPage() {
                 <BoltIcon />
                 <Link
                   style={{ textDecoration: "none", color: "white" }}
-                  to="/buynow"
+                  to="/cart"
                 >
                   <span>Buy Now</span>
                 </Link>
@@ -358,7 +379,30 @@ function SelectedProductPage() {
               {/* {mobileData[0].rating} */}
             </span>
             <p>Extra ₹5555 Off</p>
-            <h2>{fData[0].price}</h2>
+            <h2>
+              ₹
+              {fData[0].price.toString().length === 4
+                ? `${fData[0].price.toString()[0]},${
+                    fData[0].price.toString()[1]
+                  }${fData[0].price.toString()[2]}${
+                    fData[0].price.toString()[3]
+                  }`
+                : fData[0].price.toString().length === 5
+                ? `${fData[0].price.toString()[0]}${
+                    fData[0].price.toString()[1]
+                  },${fData[0].price.toString()[2]}${
+                    fData[0].price.toString()[3]
+                  }${fData[0].price.toString()[4]}`
+                : fData[0].price.toString().length === 6
+                ? `${fData[0].price.toString()[0]},${
+                    fData[0].price.toString()[1]
+                  }${fData[0].price.toString()[2]},${
+                    fData[0].price.toString()[3]
+                  }${fData[0].price.toString()[4]}${
+                    fData[0].price.toString()[5]
+                  }`
+                : ``}
+            </h2>
             {/* <h2>{mobileData[0].price}</h2> */}
             <Accordion className="accContainer">
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>

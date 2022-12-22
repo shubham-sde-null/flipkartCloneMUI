@@ -34,7 +34,7 @@
 .arrowIndicator {
     color: black;
     background-color: white;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 30px;
     height: 60px;
 }
@@ -42,7 +42,7 @@
 .arrowIndicatorS {
     color: black;
     background-color: white;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 30px;
     height: 60px;
 }

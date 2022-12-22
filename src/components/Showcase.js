@@ -7,7 +7,7 @@ const useStyles = makeStyles(() => ({
     marginTop: "7px",
     marginLeft: "10px",
     marginRight: "10px",
-    border: "2px solid red",
+    // border: "2px solid red",
   },
   mainContS: {
     width: "auto",

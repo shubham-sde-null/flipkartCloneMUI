@@ -147,7 +147,23 @@ function Product({
               variant="body"
               sx={{ fontSize: "1rem", color: "black", fontWeight: "500" }}
             >
-              {price}
+              ₹
+              {price.toString().length === 4
+                ? `${price.toString()[0]},${price.toString()[1]}${
+                    price.toString()[2]
+                  }${price.toString()[3]}`
+                : price.toString().length === 5
+                ? `${price.toString()[0]}${price.toString()[1]},${
+                    price.toString()[2]
+                  }${price.toString()[3]}${price.toString()[4]}`
+                : price.toString().length === 6
+                ? `${price.toString()[0]},${price.toString()[1]}${
+                    price.toString()[2]
+                  },${price.toString()[3]}${price.toString()[4]}${
+                    price.toString()[5]
+                  }`
+                : ``}
+              {/* {price} */}
             </Typography>
             <br />
             <Typography
@@ -212,7 +228,24 @@ function Product({
             <p>* {spec6}</p>
           </div>
           <div className={classes.third}>
-            <h3>{price}</h3>
+            <h3>
+              ₹
+              {price.toString().length === 4
+                ? `${price.toString()[0]},${price.toString()[1]}${
+                    price.toString()[2]
+                  }${price.toString()[3]}`
+                : price.toString().length === 5
+                ? `${price.toString()[0]}${price.toString()[1]},${
+                    price.toString()[2]
+                  }${price.toString()[3]}${price.toString()[4]}`
+                : price.toString().length === 6
+                ? `${price.toString()[0]},${price.toString()[1]}${
+                    price.toString()[2]
+                  },${price.toString()[3]}${price.toString()[4]}${
+                    price.toString()[5]
+                  }`
+                : ``}
+            </h3>
             <p style={{ fontSize: "13px" }}>{delivery}</p>
           </div>
         </div>

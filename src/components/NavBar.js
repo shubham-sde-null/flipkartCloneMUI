@@ -199,7 +199,7 @@ function NavBar({ count }) {
   const [filteredArray, setFilteredArray] = useState(historyData);
   const registerHandler = () => {
     setRegister(!register);
-    console.log("register is", register);
+    // console.log("register is", register);
   };
   const loginHandler = () => {
     localStorage.removeItem("userInfo");
@@ -279,8 +279,24 @@ function NavBar({ count }) {
                     )}
                     {/* <LoginRoundedIcon sx={{ color: "white" }} /> */}
                   </IconButton>
-                  <Typography variant="body" sx={{ fontWeight: "100" }}>
-                    Login
+                  <Typography
+                    variant="body"
+                    onClick={loginHandler}
+                    sx={{ fontWeight: "100" }}
+                  >
+                    {/* adding new functionality */}
+                    {localStorage.getItem("userInfo") ? (
+                      <Link
+                        to="/"
+                        style={{ textDecoration: "none", color: "white" }}
+                      >
+                        Logout
+                      </Link>
+                    ) : (
+                      "Login"
+                    )}
+                    {/* end of adding new functionality  */}
+                    {/* Login */}
                   </Typography>
                 </div>
               </div>
@@ -380,7 +396,7 @@ function NavBar({ count }) {
                         <Link to={`/${item}`} className="linkStyles">
                           <Typography
                             className="searchResult"
-                            onClick={console.log("hello")}
+                            // onClick={console.log("hello")}
                           >
                             {" "}
                             <HistoryIcon fontSize="small" />

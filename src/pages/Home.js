@@ -9,9 +9,9 @@ import ContainerWithCarousel from "../components/ContainerWithCarousel";
 import { useSelector } from "react-redux";
 
 function Home() {
-  useEffect(() => {
-    console.log("this is home page");
-  }, []);
+  // useEffect(() => {
+  //   console.log("this is home page");
+  // }, []);
   const NumberOfItems = useSelector((state) => state.totalCartItems.count);
   const items = {
     image1: "https://i.postimg.cc/C1F1cKzL/showcase1.png",

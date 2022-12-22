@@ -7,10 +7,10 @@ function Register(props) {
   //   const navigate = useNavigate();
   const [email, setEmial] = useState("");
   const [password, setPassword] = useState("");
-  useEffect(() => {
-    console.log("the email is", email);
-    console.log("the password is", password);
-  });
+  // useEffect(() => {
+  //   console.log("the email is", email);
+  //   console.log("the password is", password);
+  // });
   async function registerHandler() {
     let item = { email, password };
     // http://localhost:8000/registeruser
